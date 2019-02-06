@@ -66,6 +66,7 @@ module.exports = {
          *  Utility Plugins
          */
         {
+
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {
                 short_name: config.shortTitle,
@@ -108,6 +109,38 @@ module.exports = {
                 ],
             },
         },
+        {
+            resolve: `gatsby-plugin-remote-images`,
+            options: {
+                nodeType: `GhostAuthor`,
+                imagePath: `profile_image`,
+                name: `profile_image_local`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-remote-images`,
+            options: {
+                nodeType: `GhostPost`,
+                imagePath: `primary_author.profile_image`,
+                name: `profile_image_local`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-remote-images`,
+            options: {
+                nodeType: `GhostPost`,
+                imagePath: `feature_image`,
+                name: `feature_image_local`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-html-to-mobiledoc`,
+            options: {
+                nodeType: `GhostPost`,
+                htmlPath: `html`,
+            },
+        },
+
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
