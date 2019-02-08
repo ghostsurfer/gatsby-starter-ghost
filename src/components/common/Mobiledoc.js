@@ -9,8 +9,6 @@ const image = {
     name: `image`,
     type: `html`,
     render({ payload }) {
-
-
         if (payload.imageNode.childImageSharp){
             return <Img fluid={payload.imageNode.childImageSharp.fluid} alt={ payload.alt }/>
         } else {
@@ -31,7 +29,7 @@ const code = {
 class Mobiledoc extends React.Component {
   static propTypes = {
       mobiledoc: PropTypes.string.isRequired,
-      files: PropTypes.object.isRequired,
+      files: PropTypes.array.isRequired,
   };
 
   constructor(props) {
@@ -46,17 +44,13 @@ class Mobiledoc extends React.Component {
       const mobiledoc = JSON.parse(this.props.mobiledoc)
       const files = this.props.files
 
-      mobiledoc.cards.map(async (card) => {
-
+      mobiledoc.cards.map((card) => {
           if (card[0] === `image`){
               function findFile(element) {
                   return element.node.id === card[1].imageNode
               }
-              const i = await files.findIndex(findFile)
-
-
+              const i = files.findIndex(findFile)
               const imageNode = files[i]
-
               if (imageNode){
                   card[1].imageNode = imageNode.node
               }

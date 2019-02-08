@@ -7462,11 +7462,6 @@ mobiledoc-text-renderer@0.3.2:
   resolved "https://registry.yarnpkg.com/mobiledoc-text-renderer/-/mobiledoc-text-renderer-0.3.2.tgz#126a167a6cf8b6cd7e58c85feb18043603834580"
   integrity sha1-EmoWemz4ts1+WMhf6xgENgODRYA=
 
-mobiledoc-vdom-renderer@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/mobiledoc-vdom-renderer/-/mobiledoc-vdom-renderer-1.0.0.tgz#0ee10405564dfa88166b5ff8b34f77b349296d65"
-  integrity sha512-crJ0+8erXWrnt2JMu/KbvmZA+8JAHnx55T0+gnW00BsDjrQ/DPWiMQ+qRk1QRIBYj//9cXElYlzNxJZ6BLzEhQ==
-
 moment@^2.10.6, moment@^2.15.2, moment@^2.18.1:
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.23.0.tgz#759ea491ac97d54bac5ad776996e2a58cc1bc225"

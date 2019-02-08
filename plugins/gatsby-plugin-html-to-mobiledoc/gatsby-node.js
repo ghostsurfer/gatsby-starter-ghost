@@ -55,7 +55,6 @@ function downloadAllImages(nodeContent, store, cache, createNode, createNodeId){
                 createNodeId,
             }).then((fileNode) => {
                 card[1].imageNode = fileNode.id
-                
             })
         }
         return card
@@ -64,6 +63,6 @@ function downloadAllImages(nodeContent, store, cache, createNode, createNodeId){
     Promise.all(mapProm).then(() => {
         _nodeContent.mobiledoc = JSON.stringify(mobiledoc)
     })
-    
+
     return _nodeContent
 }
