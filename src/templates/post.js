@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
 
-import { Layout, Mobiledoc } from '../components/common'
+import { Layout, Mobiledoc, ContactForm } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 /**
@@ -57,7 +57,7 @@ const Post = ({ data, location }) => {
                             </section>
                         </section>
                     </article>
-
+                    <ContactForm/>
                     <div></div>
                 </div>
             </Layout>
