@@ -32,12 +32,12 @@ exports.onCreateNode = ({ node,
 
         }
 
+        const nodeWithImages = downloadAllImages(nodeContent, store, cache, createNode, createNodeId)
+        createNode(nodeWithImages)
+
         // Adds a field `localImage` or custom name to the node
         // ___NODE appendix tells Gatsby that this field will link to another node
         node[`${name}___NODE`] = node.id + `_mobiledoc`
-
-        return downloadAllImages(nodeContent, store, cache, createNode, createNodeId)
-            .then(node => createNode(node))
     }
 }
 
@@ -45,9 +45,9 @@ function downloadAllImages(nodeContent, store, cache, createNode, createNodeId){
     const _nodeContent = nodeContent
     const mobiledoc = JSON.parse(_nodeContent.mobiledoc)
 
-    const mapProm = mobiledoc.cards.map((card) => {
+    const mapProm = mobiledoc.cards.map(async (card) => {
         if (card[0] === `image`){
-            return createRemoteFileNode({
+            await createRemoteFileNode({
                 url: card[1].src,
                 store,
                 cache,
@@ -57,27 +57,12 @@ function downloadAllImages(nodeContent, store, cache, createNode, createNodeId){
                 card[1].imageNode = fileNode.id
             })
         }
-
-        if (card[0] === `gallery`){
-            const galleryProm = card[1].images.map(image => createRemoteFileNode({
-                url: image.src,
-                store,
-                cache,
-                createNode,
-                createNodeId,
-            }).then((fileNode) => {
-                image.imageNode = fileNode.id
-            }))
-
-            return Promise.all(galleryProm).then(() => card)
-        }
-
-        return null
+        return card
     })
 
-    return Promise.all(mapProm).then(() => {
+    Promise.all(mapProm).then(() => {
         _nodeContent.mobiledoc = JSON.stringify(mobiledoc)
-
-        return _nodeContent
     })
+    echo(_nodeContent)
+    return _nodeContent
 }

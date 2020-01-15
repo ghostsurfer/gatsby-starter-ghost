@@ -5,8 +5,9 @@ import Img from 'gatsby-image'
 
 const PostCard = ({ post }) => {
     const url = `${post.slug}/`
+
     return (
-        <Link to={url} className="post-card" style={{ flex: 10 * post.feature_image_local.childImageSharp.fluid.aspectRatio + ` ` + 10 * post.feature_image_local.childImageSharp.fluid.aspectRatio + ` ` + 300 * post.feature_image_local.childImageSharp.fluid.aspectRatio + `px` }}>
+        <Link to={url} className="post-card" style={{ width: 300 * post.feature_image_local.childImageSharp.fluid.aspectRatio + `px`, display: `inline-block` }}>
             {post.feature_image &&
                     <Img fluid={post.feature_image_local.childImageSharp.fluid}/>}
         </Link>

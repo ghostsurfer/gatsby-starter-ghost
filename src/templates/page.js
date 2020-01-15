@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import { Layout, Mobiledoc } from '../components/common'
+import { Layout, Mobiledoc, ContactForm } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 /**
@@ -14,6 +14,11 @@ import { MetaData } from '../components/common/meta'
 const Page = ({ data, location }) => {
     const page = data.ghostPage
     const files = data.allFile.edges
+    const checkForm = page.tags.find(hasForm)
+
+    function hasForm(tag) {
+        return tag.name === `#contactForm`
+    }
 
     return (
         <>
@@ -25,7 +30,7 @@ const Page = ({ data, location }) => {
             <Layout>
                 <div className="container">
                     <article className="content">
-                        <h1 className="content-title">{page.title}</h1>
+                        <h1 className="content-title">{page.title} </h1>
 
                         {/* The main page content */}
                         <section
@@ -33,6 +38,11 @@ const Page = ({ data, location }) => {
                             <Mobiledoc mobiledoc={page.parsed_mobiledoc.mobiledoc} files={files}/>
                         </section>
                     </article>
+                    <section
+                        className="content-body load-external-scripts">
+                        {checkForm ? <ContactForm></ContactForm> : null}
+                    </section>
+
                 </div>
             </Layout>
         </>
@@ -56,7 +66,19 @@ export const postQuery = graphql`
     query($slug: String!) {
         ghostPage(slug: { eq: $slug }) {
             ...GhostPageFields
+            parsed_mobiledoc{
+              mobiledoc
+            }
+            feature_image_local{
+              childImageSharp {
+                fluid(maxWidth: 4000, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                  presentationWidth
+                }
+              }
+            }
         }
+
         allFile {
           edges {
             node {

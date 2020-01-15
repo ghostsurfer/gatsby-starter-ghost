@@ -35,7 +35,6 @@ module.exports = {
     },
     plugins: [
         /**
-        
          *  Content Plugins
          */
         {
@@ -134,13 +133,27 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-plugin-remote-images`,
+            options: {
+                nodeType: `GhostPage`,
+                imagePath: `feature_image`,
+                name: `feature_image_local`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-html-to-mobiledoc`,
+            options: {
+                nodeType: `GhostPage`,
+                htmlPath: `html`,
+            },
+        },
+        {
             resolve: `gatsby-plugin-html-to-mobiledoc`,
             options: {
                 nodeType: `GhostPost`,
                 htmlPath: `html`,
             },
         },
-
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
