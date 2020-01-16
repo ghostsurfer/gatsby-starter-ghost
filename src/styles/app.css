@@ -1071,17 +1071,20 @@ h6 {
 }
 
 .gallery .post-card {
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-  transition: all 250ms ease-in-out;
-  margin: 10px;
+  margin: 2.5px;
   overflow: hidden;
 }
 
-.gallery .post-card:hover {
+.gallery .post-card > div {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  transition: all 250ms ease-in-out;
+}
+
+.gallery .post-card:hover > div {
   -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
   filter: grayscale(0%);
-  transform: scale3d(1.02, 1.02, 1.02);
+  transform: scale3d(1.1, 1.1, 1.1);
 }
 
 /* POST STYLES */
