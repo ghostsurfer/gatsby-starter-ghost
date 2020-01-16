@@ -57,6 +57,7 @@
     "lodash": "4.17.15",
     "react": "16.12.0",
     "react-dom": "16.12.0",
+    "react-google-recaptcha": "^2.0.1",
     "react-helmet": "5.2.1",
     "react-markdown": "^4.3.1",
     "utila": "^0.5.0-dev.1",

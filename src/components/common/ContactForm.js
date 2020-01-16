@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { theme } from '../../styles/material-ui'
+import ReCAPTCHA from "react-google-recaptcha"
 
 const ContactForm = () => (
 
@@ -19,7 +20,7 @@ const ContactForm = () => (
                 <TextField name="Phone number" className="full" label="Telefonnummer" variant="outlined" type="tel" />
                 <TextField name="Message" className="full" label="Nachricht" multiline variant="outlined" rows="8" required/>
                 {/* Important for Backend*/}  <input type="hidden" name="form-name" value="Book a Shooting" />
-                <div data-netlify-recaptcha="true"></div>
+                <ReCAPTCHA sitekey="6Leh-s8UAAAAAI13V_gTmul1_xFKWJwRdWMcN5gP" />,
                 <Button className="submit" type="submit" variant="contained" style={{ 'min-height': ` 55.4px`, 'grid-column': ` 2`, "margin-top": `10px` }} color="primary" >Senden</Button>
             </div>
 
