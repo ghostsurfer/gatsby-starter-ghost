@@ -40,7 +40,7 @@ const Page = ({ data, location }) => {
                     </article>
                     <section
                         className="content-body load-external-scripts">
-                        {checkForm ? null : <ContactForm></ContactForm>}
+                        {checkForm ? <ContactForm></ContactForm> : null}
                     </section>
 
                 </div>

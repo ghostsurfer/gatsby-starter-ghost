@@ -12,7 +12,7 @@ const BookShooting = () => (
                 <h1 className="content-title">Book a Shooting</h1>
                 <section className="content-body">
 
-                    <form name="TFP-Shooting" method="post" data-netlify="true" data-netlify-honeypot="important-field">
+                    <form name="TFP-Shooting" method="post" data-netlify="true" data-netlify-recaptcha="true">
 
                         <ThemeProvider theme={theme}>
 
@@ -24,6 +24,7 @@ const BookShooting = () => (
                                 <TextField className="full" label="E-Mail-Adresse" variant="outlined" name="email" type="email" required />
                                 <TextField className="full" label="Telefonnummer" variant="outlined" name="tel" type="tel" />
                                 <TextField className="full" id="outlined-textarea" label="Nachricht" multiline variant="outlined" rows="8" helperText="Beschreibe in wenigen Worten was du von dem shooting erwartest."required/>
+                                <div data-netlify-recaptcha="true"></div>
                                 <Button className="submit" type="submit" variant="contained" style={{ 'min-height': ` 55.4px`, 'grid-column': ` 2`, "margin-top": `10px` }} color="primary" >
                                     Senden
                                 </Button>
