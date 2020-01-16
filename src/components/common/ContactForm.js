@@ -16,7 +16,7 @@ const ContactForm = () => (
                 <TextField name="Firstname" className="half" label="Vorname" variant="outlined" type="text" required />
                 <TextField name="Lastname" className="half" label="Nachname" variant="outlined" type="text" required />
                 <TextField name="Email" className="full" label="E-Mail-Adresse" variant="outlined" type="email" required />
-                <TextField name="Phone number" name="tel" className="full" label="Telefonnummer" variant="outlined" type="tel" />
+                <TextField name="Phone number" className="full" label="Telefonnummer" variant="outlined" type="tel" />
                 <TextField name="Message" className="full" label="Nachricht" multiline variant="outlined" rows="8" required/>
                 {/* Important for Backend*/}  <input type="hidden" name="form-name" value="Book a Shooting" />
                 <Button className="submit" type="submit" variant="contained" style={{ 'min-height': ` 55.4px`, 'grid-column': ` 2`, "margin-top": `10px` }} color="primary" >Senden</Button>
