@@ -6,7 +6,7 @@ import { theme } from '../../styles/material-ui'
 
 const ContactForm = () => (
 
-    <form name="Book a Shooting" method="post" data-netlify="true" style={{ 'text-align': `center` }}>
+    <form name="Book a Shooting" method="post" data-netlify="true" style={{ 'text-align': `center` }} data-netlify-recaptcha="true">
         <ThemeProvider theme={theme}>
 
             <h2 >Jetzt für ein kostenloses Shooting bewerben!</h2>
@@ -19,6 +19,7 @@ const ContactForm = () => (
                 <TextField name="Phone number" className="full" label="Telefonnummer" variant="outlined" type="tel" />
                 <TextField name="Message" className="full" label="Nachricht" multiline variant="outlined" rows="8" required/>
                 {/* Important for Backend*/}  <input type="hidden" name="form-name" value="Book a Shooting" />
+                <div data-netlify-recaptcha="true"></div>
                 <Button className="submit" type="submit" variant="contained" style={{ 'min-height': ` 55.4px`, 'grid-column': ` 2`, "margin-top": `10px` }} color="primary" >Senden</Button>
             </div>
 
