@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "http://192.168.21.5:1211",
-    "contentApiKey": "0f491c4b34b83acdc2cab21090"
+    "apiUrl": " http://sim.prograp.host",
+    "contentApiKey": "37c9e5074abc2190751059093a "
   },
   "production": {
-    "apiUrl": "https://gatsby.ghost.io",
-    "contentApiKey": "9cc5c67c358edfdd81455149d0"
+    "apiUrl": " http://sim.prograp.host",
+    "contentApiKey": "37c9e5074abc2190751059093a "
   }
 }
