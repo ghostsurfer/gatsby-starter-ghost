@@ -1113,7 +1113,7 @@ h6 {
   .post-full-content .gallery,
   .card_width_wide,
   .post-feature-image {
-    margin: 0 calc(-220px + 4vw);
+    margin: 0 calc(-340px + 4vw);
     width: unset;
     transform: unset;
   }

@@ -119,6 +119,14 @@ module.exports = {
         {
             resolve: `gatsby-plugin-remote-images`,
             options: {
+                nodeType: `GhostSettings`,
+                imagePath: `cover_image`,
+                name: `cover_image_local`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-remote-images`,
+            options: {
                 nodeType: `GhostPost`,
                 imagePath: `primary_author.profile_image`,
                 name: `profile_image_local`,

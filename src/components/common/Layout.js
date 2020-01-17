@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-
+import BackgroundImage from 'gatsby-background-image'
 import { Navigation } from '.'
-import config from '../../utils/siteConfig'
 
 // Styles
 import '../../styles/app.css'
@@ -34,7 +33,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
                 <div className="viewport-top">
                     {/* The main header section on top of the screen */}
-                    <header className="site-head">
+                    <BackgroundImage className="site-head" Tag="header" fluid={site.cover_image_local.childImageSharp.fluid}>
                         <div className="container">
                             <div className="site-mast">
                                 <div className="site-mast-left">
@@ -64,7 +63,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 </div>
                             </nav>
                         </div>
-                    </header>
+                    </BackgroundImage>
 
                     <main className="site-main">
                         {/* All the main content gets inserted here, index.js, post.js */}
@@ -110,6 +109,15 @@ const DefaultLayoutSettingsQuery = props => (
                     edges {
                         node {
                             ...GhostSettingsFields
+                            cover_image_local{
+                              childImageSharp {
+                                fluid(maxWidth: 1000, quality: 100) {
+                                  ...GatsbyImageSharpFluid_withWebp
+                                  presentationWidth
+                                  aspectRatio
+                                }
+                              }
+                            }
                         }
                     }
                 }

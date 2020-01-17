@@ -57,8 +57,6 @@ const Post = ({ data, location }) => {
                             </section>
                         </section>
                     </article>
-                    <ContactForm/>
-                    <div></div>
                 </div>
             </Layout>
         </>
