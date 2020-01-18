@@ -1,10 +1,11 @@
 {
   "development": {
-    "apiUrl": " http://sim.prograp.host",
-    "contentApiKey": "37c9e5074abc2190751059093a "
+    "apiUrl": "http://sim.prograp.host",
+    "contentApiKey": "37c9e5074abc2190751059093a"
   },
   "production": {
-    "apiUrl": " http://sim.prograp.host",
-    "contentApiKey": "37c9e5074abc2190751059093a "
+    "apiUrl": "http://sim.prograp.host",
+    "contentApiKey": "37c9e5074abc2190751059093a"
+ "
   }
 }
