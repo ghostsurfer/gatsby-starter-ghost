@@ -33,7 +33,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
                 <div className="viewport-top">
                     {/* The main header section on top of the screen */}
-                    <BackgroundImage className="site-head" Tag="header" fluid={site.cover_image_local.childImageSharp.fluid}>
+                    <BackgroundImage className="site-head" Tag="header" fluid={[`linear-gradient(transparent, #15171a)`,site.cover_image_local.childImageSharp.fluid]}>
                         <div className="container">
                             <div className="site-mast">
                                 <div className="site-mast-left">
