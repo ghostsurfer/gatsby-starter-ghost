@@ -7,7 +7,8 @@ import BackgroundImage from 'gatsby-background-image'
 import { Navigation } from '.'
 
 // Styles
-import '../../styles/app.css'
+// import '../../styles/app.css'
+import '../../styles/colors.scss'
 
 /**
 * Main layout component
