@@ -1,0 +1,32 @@
+/* Color settings */
+
+$background-color-light-config: #f7f7f7;
+$background-color-dark-config: #141414;
+
+$card-color-light-config: #fff;
+$card-color-dark-config: #1b1b1b;
+
+$text-color-light-config: #141414;
+$text-color-dark-config: #d4d4d4;
+
+/* theming in elementscoped CSS Variables */
+:root {
+  --background-color: #{$background-color-light-config};
+  --text-color: #{$text-color-light-config};
+  --card-color: #{$card-color-light-config};
+}
+
+/* stylelint-disable-next-line media-feature-name-no-unknown */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #{$background-color-dark-config};
+    --text-color: #{$text-color-dark-config};
+    --card-color: #{$card-color-dark-config};
+  }
+}
+
+/* set quick use for variables */
+
+$background: var(--background-color);
+$text: var(--text-color);
+$card: var(--card-color);

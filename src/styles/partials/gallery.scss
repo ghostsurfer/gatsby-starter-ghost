@@ -1,0 +1,20 @@
+.gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .post-card {
+    border-radius: 8px;
+    overflow: hidden;
+
+    .gatsby-image-wrapper {
+      transition: transform 0.2s ease-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

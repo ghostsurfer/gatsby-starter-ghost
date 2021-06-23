@@ -8,7 +8,7 @@ import { Navigation } from '.'
 
 // Styles
 // import '../../styles/app.css'
-import '../../styles/colors.scss'
+import '../../styles/index.scss'
 
 /**
 * Main layout component
@@ -34,37 +34,21 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
                 <div className="viewport-top">
                     {/* The main header section on top of the screen */}
-                    <BackgroundImage className="site-head" Tag="header" fluid={[`linear-gradient(transparent, #15171a)`,site.cover_image_local.childImageSharp.fluid]}>
-                        <div className="container">
-                            <div className="site-mast">
-                                <div className="site-mast-left">
-                                    <Link to="/">
-                                        <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
-                                    </Link>
-                                </div>
-                                <div className="site-mast-right">
-                                    { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/instagram.svg" alt="Instagram" /></a>}
-                                    { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
-                                    <Link className="site-nav-item" to={ `rss/` } target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></Link>
-                                </div>
+                    <div className="site-head" Tag="header">
+
+                        <Link className="site-title" to={`/`}>{site.title}</Link>
+                        <nav className="site-nav">
+                            <div className="site-nav-left">
+                                {/* The navigation items as setup in Ghost */}
+                                <Navigation data={site.navigation} navClass="site-nav-item" />
                             </div>
-                            { isHome ?
-                                <div className="site-banner">
-                                    <h1 className="site-banner-title">{site.title}</h1>
-                                    <p className="site-banner-desc">{site.description}</p>
-                                </div> :
-                                null}
-                            <nav className="site-nav">
-                                <div className="site-nav-left">
-                                    {/* The navigation items as setup in Ghost */}
-                                    <Navigation data={site.navigation} navClass="site-nav-item" />
-                                </div>
-                                <div className="site-nav-right">
-                                    <Link className="site-nav-button" to="/about">About</Link>
-                                </div>
-                            </nav>
-                        </div>
-                    </BackgroundImage>
+                        </nav>
+                        {/* <div className="site-mast-right">
+                            { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/instagram.svg" alt="Instagram" /></a>}
+                            { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
+                            <Link className="site-nav-item" to={ `rss/` } target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></Link>
+                        </div> */}
+                    </div>
 
                     <main className="site-main">
                         {/* All the main content gets inserted here, index.js, post.js */}
