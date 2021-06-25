@@ -99,9 +99,10 @@
       width: 21px;
       height: 14px;
       z-index: 2;
+      cursor: pointer;
 
       div {
-        background: #111;
+        background: color.$text;
         border-radius: 1.5px;
         height: 2px;
         right: 0;
