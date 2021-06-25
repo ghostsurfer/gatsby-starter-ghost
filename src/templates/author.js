@@ -37,7 +37,7 @@ const Author = ({ data, location, pageContext }) => {
                             }
                         </div>
                         <div className="author-header-content">
-                            <h1><span>{author.location}<br></br></span>{author.name}</h1>
+                            <h1><span className="author-job-title">{author.location}<br></br></span>{author.name}</h1>
                             {author.bio && <p>{author.bio}</p>}
                             <div className="author-header-meta">
                                 {author.website && <a className="author-header-item" href={author.website} target="_blank" rel="noopener noreferrer">Website</a>}
