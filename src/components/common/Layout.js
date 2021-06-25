@@ -5,7 +5,6 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 import { Navigation } from '.'
-
 // Styles
 // import '../../styles/app.css'
 import '../../styles/index.scss'
@@ -37,6 +36,11 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <div className="site-head" Tag="header">
 
                         <Link className="site-title" to={`/`}>{site.title}</Link>
+                        <div className="menu-icon" onClick={toggleMenu}>
+                            <div className="menu-top"></div>
+                            <div className="menu-middle"></div>
+                            <div className="menu-bottom"></div>
+                        </div>
                         <nav className="site-nav">
                             <div className="site-nav-left">
                                 {/* The navigation items as setup in Ghost */}
@@ -65,7 +69,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
 
                 </div>
             </div>
-
         </>
     )
 }
@@ -111,5 +114,25 @@ const DefaultLayoutSettingsQuery = props => (
         render={data => <DefaultLayout data={data} {...props} />}
     />
 )
+// Toggle Function menu
+
+let toggleNavStatus = false
+
+function toggleMenu(){
+    let getMenu = document.querySelector(`.site-nav`)
+    let getMenuIcon = document.querySelector(`.menu-icon`)
+
+    if (toggleNavStatus === false) {
+        getMenu.classList.add(`open`)
+        getMenuIcon.classList.add(`open`)
+
+        toggleNavStatus = true
+    } else {
+        getMenu.classList.remove(`open`)
+        getMenuIcon.classList.remove(`open`)
+
+        toggleNavStatus = false
+    }
+}
 
 export default DefaultLayoutSettingsQuery

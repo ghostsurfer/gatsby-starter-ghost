@@ -3,6 +3,7 @@
 .site-head {
   padding: 32px 0;
 
+
   .site-title {
     font-size: 22px;
     text-transform: uppercase;
@@ -43,6 +44,105 @@
         &::after {
           background: color.$text;
           bottom: -2px;
+        }
+      }
+    }
+
+    @media (max-width: 800px) {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 0%;
+      background-color: color.$background;
+      z-index: 1;
+      overflow: hidden;
+      transition: height 0.2s 0.2s, opacity 0.2s;
+
+      .site-nav-item { opacity: 0; }
+
+      &.open {
+        height: 100%;
+        padding: 48px 0;
+        display: inline-block;
+
+        .site-nav-item {
+          opacity: 1;
+          transition: height 0.2s, opacity 0.2s 0.2s;
+        }
+      }
+
+      .site-nav-item {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        font-size: 16px;
+        margin: 8px 0;
+
+        &::after {
+          width: 20%;
+          left: 40%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .site-title {
+      margin-right: 8px;
+    }
+
+    .menu-icon {
+      position: relative;
+      float: right;
+      margin: 6.25px 0;
+      width: 21px;
+      height: 14px;
+      z-index: 2;
+
+      div {
+        background: #111;
+        border-radius: 1.5px;
+        height: 2px;
+        right: 0;
+        position: absolute;
+        transition: top 0.2s 0.2s, transform 0.2s, opacity 0s 0.2s;
+      }
+
+      .menu-top {
+        top: 0;
+        width: 21px;
+      }
+
+      .menu-middle {
+        top: 6px;
+        width: 14px;
+      }
+
+      .menu-bottom {
+        top: 12px;
+        width: 21px;
+      }
+
+      &.open {
+        div {
+          transition: top 0.2s, transform 0.2s 0.2s, opacity 0s 0.2s;
+        }
+
+        .menu-top {
+          top: 6px;
+          transform: rotate(45deg);
+          transform-origin: center;
+        }
+
+        .menu-middle {
+          opacity: 0;
+        }
+
+        .menu-bottom {
+          top: 6px;
+          transform: rotate(-45deg);
+          transform-origin: center;
         }
       }
     }
