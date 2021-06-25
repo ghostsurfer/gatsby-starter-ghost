@@ -41,8 +41,8 @@ const Author = ({ data, location, pageContext }) => {
                             {author.bio && <p>{author.bio}</p>}
                             <div className="author-header-meta">
                                 {author.website && <a className="author-header-item" href={author.website} target="_blank" rel="noopener noreferrer">Website</a>}
+                                {facebookUrl && <a className="author-header-item" href={facebookUrl} target="_blank" rel="noopener noreferrer">Instagram</a>}
                                 {twitterUrl && <a className="author-header-item" href={twitterUrl} target="_blank" rel="noopener noreferrer">Twitter</a>}
-                                {facebookUrl && <a className="author-header-item" href={facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a>}
                             </div>
                         </div>
                     </header>

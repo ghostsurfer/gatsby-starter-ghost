@@ -244,5 +244,9 @@ export const ghostSettingsFields = graphql`
             label
             url
         }
+        secondary_navigation{
+            label
+            url
+        }
     }
 `

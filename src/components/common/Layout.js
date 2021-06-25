@@ -60,7 +60,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 <div className="viewport-bottom">
                     {/* The footer at the very bottom of the screen */}
                     <footer className="site-foot">
-                        <Link to="/">{site.title}</Link> © {new Date().getFullYear()} &mdash; Published with <a className="site-foot-nav-item" href="https://ghost.org" target="_blank" rel="noopener noreferrer">Ghost</a>
+                        {site.title} © {new Date().getFullYear()}<Navigation data={site.secondary_navigation} navClass="site-nav-item" />
                     </footer>
 
                 </div>

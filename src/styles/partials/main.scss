@@ -32,6 +32,12 @@ html {
       padding: 16px 0;
       margin: auto;
       width: max-content;
+
+      .site-nav-item {
+        &::before {
+          content: ' • ';
+        }
+      }
     }
   }
 }
