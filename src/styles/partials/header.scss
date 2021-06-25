@@ -3,13 +3,14 @@
 .site-head {
   padding: 32px 0;
 
-
   .site-title {
     font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: 600;
     margin-right: 48px;
+    max-width: calc(100% - 29px);
+    display: inline-block;
   }
 
   .site-nav {
@@ -59,7 +60,19 @@
       overflow: hidden;
       transition: height 0.2s 0.2s, opacity 0.2s;
 
-      .site-nav-item { opacity: 0; }
+      .site-nav-item {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        font-size: 16px;
+        margin: 8px 0;
+        opacity: 0;
+
+        &::after {
+          width: 20%;
+          left: 40%;
+        }
+      }
 
       &.open {
         height: 100%;
@@ -69,19 +82,6 @@
         .site-nav-item {
           opacity: 1;
           transition: height 0.2s, opacity 0.2s 0.2s;
-        }
-      }
-
-      .site-nav-item {
-        width: 100%;
-        display: inline-block;
-        text-align: center;
-        font-size: 16px;
-        margin: 8px 0;
-
-        &::after {
-          width: 20%;
-          left: 40%;
         }
       }
     }
