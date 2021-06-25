@@ -1,0 +1,40 @@
+@use '../config/colors' as color;
+
+.author-header {
+  width: max-content;
+  margin: 0 auto 48px;
+  text-align: center;
+
+  .author-header-image {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid color.$text;
+  }
+
+  h1 {
+    span {
+      letter-spacing: 1px;
+      opacity: 0.3;
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+
+  .author-header-meta {
+    .author-header-item {
+      &:not(:last-of-type) {
+        &::after {
+          content: ' • ';
+        }
+      }
+    }
+  }
+
+  p {
+    opacity: 0.5;
+  }
+}

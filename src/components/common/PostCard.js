@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 const PostCard = ({ post }) => {
-    const url = `${post.slug}/`
+    const url = `/${post.slug}/`
     return (
         <Link to={url} className="post-card" style={{ flex: 10 * post.feature_image_local.childImageSharp.fluid.aspectRatio + ` ` + 10 * post.feature_image_local.childImageSharp.fluid.aspectRatio + ` ` + 400 * post.feature_image_local.childImageSharp.fluid.aspectRatio + `px` }}>
             {post.feature_image &&

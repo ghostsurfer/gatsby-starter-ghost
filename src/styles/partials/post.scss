@@ -21,6 +21,12 @@ article {
       }
     }
 
+    .post-media,
+    .gatsby-image-wrapper {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
     .post-excerpt {
       font-size: 20px;
       line-height: 1.5;
@@ -38,12 +44,18 @@ article {
       display: grid;
       grid-template-columns: [full-start] minmax(15px, auto) [wide-start] minmax(auto, 195px) [main-start] min(750px, calc(100% - 30px)) [main-end] minmax(auto, 195px) [wide-end] minmax(15px, auto) [full-end];
 
-      * {
+      > * {
         grid-column: main-start/main-end;
+        margin-top: 20px;
       }
 
-      .gallery {
+      .gallery,
+      .card_width_wide {
         grid-column: wide-start/wide-end;
+      }
+
+      .card_width_full {
+        grid-column: full-start/full-end;
       }
     }
 

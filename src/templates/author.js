@@ -28,8 +28,16 @@ const Author = ({ data, location, pageContext }) => {
             <Layout>
                 <div className="container">
                     <header className="author-header">
+                        <div className="author-header-image">
+                            {author.profile_image ?
+                                author.profile_image_local ?
+                                    <Img className="author-profile-image" alt={author.name} fluid={author.profile_image_local.childImageSharp.fluid} /> :
+                                    <img src={author.profile_image} alt={author.name} /> :
+                                <img className="default-avatar" src="/images/icons/avatar.svg" alt={author.name}/>
+                            }
+                        </div>
                         <div className="author-header-content">
-                            <h1>{author.name}</h1>
+                            <h1><span>{author.location}<br></br></span>{author.name}</h1>
                             {author.bio && <p>{author.bio}</p>}
                             <div className="author-header-meta">
                                 {author.website && <a className="author-header-item" href={author.website} target="_blank" rel="noopener noreferrer">Website</a>}
@@ -37,16 +45,8 @@ const Author = ({ data, location, pageContext }) => {
                                 {facebookUrl && <a className="author-header-item" href={facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a>}
                             </div>
                         </div>
-                        <div className="author-header-image">
-                            {author.profile_image ?
-                                author.profile_image_local ?
-                                    <Img className="author-profile-image" alt={author.name} fixed={author.profile_image_local.childImageSharp.fixed} /> :
-                                    <img src={author.profile_image} alt={author.name} /> :
-                                <img className="default-avatar" src="/images/icons/avatar.svg" alt={author.name}/>
-                            }
-                        </div>
                     </header>
-                    <section className="post-feed">
+                    <section className="gallery">
                         {posts.map(({ node }) => (
                             // The tag below includes the markup for each post - components/common/PostCard.js
                             <PostCard key={node.id} post={node} />
@@ -84,6 +84,13 @@ export const pageQuery = graphql`
     query GhostAuthorQuery($slug: String!, $limit: Int!, $skip: Int!) {
         ghostAuthor(slug: { eq: $slug }) {
             ...GhostAuthorFields
+            profile_image_local {
+              childImageSharp {
+                fluid(maxWidth: 200, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                  presentationWidth
+                }
+              }}
         }
         allGhostPost(
             sort: { order: DESC, fields: [published_at] },

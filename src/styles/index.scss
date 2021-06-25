@@ -1,4 +1,8 @@
 @use 'partials/header';
 @use 'partials/main';
 @use 'partials/gallery';
-@use 'partials/post'
+@use 'partials/post';
+@use 'partials/tag';
+@use 'partials/author';
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;1,400&display=swap');

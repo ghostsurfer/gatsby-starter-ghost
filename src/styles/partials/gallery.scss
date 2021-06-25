@@ -5,10 +5,13 @@
   flex-wrap: wrap;
   gap: 8px;
 
-  .post-card {
+  .post-card,
+  .gallery-card {
     border-radius: 8px;
     overflow: hidden;
+  }
 
+  .post-card {
     .gatsby-image-wrapper {
       transition: transform 0.2s ease-out;
 

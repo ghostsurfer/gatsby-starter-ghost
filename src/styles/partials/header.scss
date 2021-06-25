@@ -1,3 +1,5 @@
+@use '../config/colors' as color;
+
 .site-head {
   padding: 32px 0;
 
@@ -18,6 +20,31 @@
       text-transform: uppercase;
       font-size: 12px;
       letter-spacing: 2px;
+      position: relative;
+
+      &:hover {
+        font-weight: 600;
+        transition: all 0.2s ease-out;
+      }
+
+      &::after {
+        transition: all 0.2s ease-out;
+        content: '';
+        background: color.$background;
+        position: absolute;
+        display: inline-block;
+        height: 1px;
+        width: 120%;
+        left: -10%;
+        bottom: 0;
+      }
+
+      &[aria-current] {
+        &::after {
+          background: color.$text;
+          bottom: -2px;
+        }
+      }
     }
   }
 }
