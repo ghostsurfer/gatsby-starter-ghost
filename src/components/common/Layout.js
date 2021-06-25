@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import BackgroundImage from 'gatsby-background-image'
 import { Navigation } from '.'
 // Styles
 // import '../../styles/app.css'
@@ -17,10 +15,10 @@ import '../../styles/index.scss'
 * styles, and meta data for each page.
 *
 */
-const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
+const DefaultLayout = ({ data, children, bodyClass }) => {
     const site = data.allGhostSettings.edges[0].node
-    const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
-    const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
+    //  const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
+    //  const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
 
     return (
         <>
@@ -36,22 +34,18 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <div className="site-head" Tag="header">
 
                         <Link className="site-title" to={`/`}>{site.title}</Link>
-                        <div className="menu-icon" onClick={toggleMenu}>
-                            <div className="menu-top"></div>
-                            <div className="menu-middle"></div>
-                            <div className="menu-bottom"></div>
-                        </div>
+
                         <nav className="site-nav">
                             <div className="site-nav-left">
                                 {/* The navigation items as setup in Ghost */}
                                 <Navigation data={site.navigation} navClass="site-nav-item" />
                             </div>
                         </nav>
-                        {/* <div className="site-mast-right">
-                            { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/instagram.svg" alt="Instagram" /></a>}
-                            { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
-                            <Link className="site-nav-item" to={ `rss/` } target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></Link>
-                        </div> */}
+                        <div className="menu-icon" onClick={toggleMenu}>
+                            <div className="menu-top"></div>
+                            <div className="menu-middle"></div>
+                            <div className="menu-bottom"></div>
+                        </div>
                     </div>
 
                     <main className="site-main">
