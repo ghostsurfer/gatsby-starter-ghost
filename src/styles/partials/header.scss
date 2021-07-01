@@ -1,7 +1,12 @@
 @use '../config/colors' as color;
 
 .site-head {
-  padding: 32px 0;
+  margin: 8px 0 16px;
+  padding: 16px 0 8px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: color.$background;
 
   .site-title {
     font-size: 22px;
@@ -93,9 +98,12 @@
     }
 
     .menu-icon {
+      $menu-spaces:6px;
+
       position: relative;
       float: right;
-      margin: 6.25px 0;
+      padding: $menu-spaces;
+      margin: 0 $menu-spaces*(-1);
       width: 21px;
       height: 14px;
       z-index: 2;
@@ -105,23 +113,23 @@
         background: color.$text;
         border-radius: 1.5px;
         height: 2px;
-        right: 0;
+        right: $menu-spaces;
         position: absolute;
         transition: top 0.2s 0.2s, transform 0.2s, opacity 0s 0.2s;
       }
 
       .menu-top {
-        top: 0;
+        top: $menu-spaces;
         width: 21px;
       }
 
       .menu-middle {
-        top: 6px;
+        top: 2*$menu-spaces;
         width: 14px;
       }
 
       .menu-bottom {
-        top: 12px;
+        top: 3*$menu-spaces;
         width: 21px;
       }
 
@@ -131,7 +139,7 @@
         }
 
         .menu-top {
-          top: 6px;
+          top: 2*$menu-spaces;
           transform: rotate(45deg);
           transform-origin: center;
         }
@@ -141,7 +149,7 @@
         }
 
         .menu-bottom {
-          top: 6px;
+          top: 2*$menu-spaces;
           transform: rotate(-45deg);
           transform-origin: center;
         }
