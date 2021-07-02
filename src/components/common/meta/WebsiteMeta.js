@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import url from 'url'
 
 import ImageMeta from './ImageMeta'
+import GlobalMeta from './GlobalMeta'
 import config from '../../../utils/siteConfig'
 
 const WebsiteMeta = ({ data, settings, canonical, title, description, image, type }) => {
@@ -62,6 +63,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
                 `}</script>
             </Helmet>
             <ImageMeta image={shareImage} />
+            <GlobalMeta />
+
         </>
     )
 }

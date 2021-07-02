@@ -112,6 +112,8 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
                 `}</script>
             </Helmet>
             <ImageMeta image={shareImage} />
+            <GlobalMeta />
+
         </>
     )
 }
